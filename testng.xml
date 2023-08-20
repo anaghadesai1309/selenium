@@ -7,6 +7,9 @@
     <test name="Test Automation">
         <parameter name="browserName" value="chrome"></parameter>
         <classes>
+            <class name="test.java.NewInsuranceWithCreditCardTest"></class>
+            <class name="test.java.NewInsuranceWithDirectDebitCardTest"></class>
+            <class name="test.java.ImportInsurancesSuccessfulTest"></class>
             <class name="test.java.ImportInsurancesFailureTest"></class>
         </classes>
     </test>

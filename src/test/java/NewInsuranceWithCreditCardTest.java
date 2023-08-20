@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class NewInsuranceWithCreditCardTest extends BaseTest {
     @Test
     public void sampleMethodForNewInsuranceCreationWithCreditCard() {
+        //Login Page
         LoginPageEvents loginPageEvents = new LoginPageEvents();
         loginPageEvents.changeLanguage();
         loginPageEvents.selectEnglishLanguage();
@@ -20,6 +21,7 @@ public class NewInsuranceWithCreditCardTest extends BaseTest {
         loginPageEvents.enterPassword();
         loginPageEvents.clickOnNextButton();
 
+        //Create New Insurance Policy using Credit Card
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); // Wait for up to 5 seconds
         HomePageEvents homePageEvents = new HomePageEvents();
         homePageEvents.verifyHomePageIsLoaded();
@@ -27,7 +29,7 @@ public class NewInsuranceWithCreditCardTest extends BaseTest {
 
         NewInsurancePageEvents newInsurancePageEvents = new NewInsurancePageEvents();
         newInsurancePageEvents.verifyCreateNewInsurancePageIsLoaded();
-
+        //Product Details
         newInsurancePageEvents.selectCountryDropdown();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         newInsurancePageEvents.verifyCountryListIsLoaded();
@@ -71,6 +73,8 @@ public class NewInsuranceWithCreditCardTest extends BaseTest {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         newInsurancePageEvents.clickOnNextButton();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
+        //Customer Details
         newInsurancePageEvents.verifyCustomerFormIsLoaded();
         newInsurancePageEvents.selectSalutation();
         newInsurancePageEvents.enterFirstName();
@@ -91,6 +95,8 @@ public class NewInsuranceWithCreditCardTest extends BaseTest {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         newInsurancePageEvents.clickOnCreateInsurance();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        //Payment Gateway Page
         newInsurancePageEvents.verifyPaymentsPageIsLoaded();
         newInsurancePageEvents.selectCreditDebitCardRadioButton();
         newInsurancePageEvents.clickOnContinueToPaymentButton();

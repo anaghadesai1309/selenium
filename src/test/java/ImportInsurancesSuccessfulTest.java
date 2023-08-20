@@ -11,6 +11,8 @@ import java.util.concurrent.TimeUnit;
 public class ImportInsurancesSuccessfulTest extends BaseTest{
     @Test
     public void sampleMethodForSuccessfulImportInsurances() throws IOException {
+
+        //Login Page
         LoginPageEvents loginPageEvents = new LoginPageEvents();
         loginPageEvents.changeLanguage();
         loginPageEvents.selectEnglishLanguage();
@@ -20,11 +22,12 @@ public class ImportInsurancesSuccessfulTest extends BaseTest{
         loginPageEvents.selectPassword();
         loginPageEvents.enterPassword();
         loginPageEvents.clickOnNextButton();
-
+        //Home Page
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         HomePageEvents homePageEvents = new HomePageEvents();
         homePageEvents.verifyHomePageIsLoaded();
         homePageEvents.importInsuranceData();
+        //Import Insurances Page
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         ImportInsurancesPageEvents importInsurancesPageEvents = new ImportInsurancesPageEvents();
         importInsurancesPageEvents.verifyImportInsurancesPageLoaded();

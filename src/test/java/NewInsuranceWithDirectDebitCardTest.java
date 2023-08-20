@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class NewInsuranceWithDirectDebitCardTest extends BaseTest {
     @Test
     public void sampleMethodForNewInsuranceCreationWithDirectDebitCard() {
+        //Login Page
         LoginPageEvents loginPageEvents = new LoginPageEvents();
         loginPageEvents.changeLanguage();
         loginPageEvents.selectEnglishLanguage();
@@ -20,6 +21,7 @@ public class NewInsuranceWithDirectDebitCardTest extends BaseTest {
         loginPageEvents.enterPassword();
         loginPageEvents.clickOnNextButton();
 
+        //Create New Insurance Policy using Direct Debit Card
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); // Wait for up to 5 seconds
         HomePageEvents homePageEvents = new HomePageEvents();
         homePageEvents.verifyHomePageIsLoaded();
@@ -106,10 +108,5 @@ public class NewInsuranceWithDirectDebitCardTest extends BaseTest {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         newInsurancePageEvents.clickOnOrderForAFeeButton();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-
-
-
-
     }
 }
