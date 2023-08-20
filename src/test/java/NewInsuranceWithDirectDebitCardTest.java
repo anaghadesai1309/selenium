@@ -22,7 +22,7 @@ public class NewInsuranceWithDirectDebitCardTest extends BaseTest {
         loginPageEvents.clickOnNextButton();
 
         //Create New Insurance Policy using Direct Debit Card
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); // Wait for up to 5 seconds
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         HomePageEvents homePageEvents = new HomePageEvents();
         homePageEvents.verifyHomePageIsLoaded();
         homePageEvents.createNewInsurance();

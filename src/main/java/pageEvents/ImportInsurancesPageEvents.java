@@ -1,16 +1,14 @@
 package main.java.pageEvents;
 
 import main.java.pageObjects.ImportInsurancesPageElements;
-import main.java.pageObjects.NewInsurancePageElements;
 import main.java.utils.ElementFetch;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,13 +42,10 @@ public class ImportInsurancesPageEvents {
 
     public void compareSuccessfulCSVDataWithHTML() throws IOException {
         CSVParser csvParser = new CSVParser(new FileReader(filePathSuccess), CSVFormat.DEFAULT);
-        // Locate the HTML table containing the data
-        WebElement table = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[3]/div[2]/table")); // Replace with the actual element locator
+        WebElement table = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[3]/div[2]/table"));
 
-        // Get all rows from the HTML table
         List<WebElement> rows = table.findElements(By.tagName("tr"));
 
-        // Iterate through CSV records and HTML table rows for comparison
         int rowNumber = 0;
         for (CSVRecord csvRecord : csvParser) {
             if (rowNumber == 0) {
@@ -58,7 +53,7 @@ public class ImportInsurancesPageEvents {
                 continue;
             }
             WebElement row = rows.get(rowNumber);
-            List<WebElement> columns = row.findElements(By.tagName("th")); // Adjust the locator based on your HTML structure
+            List<WebElement> columns = row.findElements(By.tagName("th"));
             List<String> columnData = new ArrayList<>();
             int columnNumber = 0;
             for (WebElement column : columns) {
@@ -81,8 +76,6 @@ public class ImportInsurancesPageEvents {
             Assert.assertEquals(columnData.get(9), "✅");
             rowNumber++;
         }
-
-        // Close the CSV parser
         csvParser.close();
     }
 
@@ -92,15 +85,12 @@ public class ImportInsurancesPageEvents {
         System.out.println(errorMessage);
         CSVParser csvParser = new CSVParser(new FileReader(filePathSuccess), CSVFormat.DEFAULT);
         List<CSVRecord> csvRecords = csvParser.getRecords();
-        // Locate the HTML table containing the data
-        WebElement table = driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div/div[2]/div[3]/div[2]/table/tbody")); // Replace with the actual element locator
+        WebElement table = driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div/div[2]/div[3]/div[2]/table/tbody"));
 
-        // Get all rows from the HTML table
         List<WebElement> rows = table.findElements(By.tagName("tr"));
-
         // Iterate through CSV records and HTML table for comparison of row 0
         WebElement row = rows.get(0);
-        List<WebElement> columns = row.findElements(By.tagName("th")); // Adjust the locator based on your HTML structure
+        List<WebElement> columns = row.findElements(By.tagName("th"));
         List<String> columnData = new ArrayList<>();
         int columnNumber = 0;
         for (WebElement column : columns) {
@@ -125,7 +115,7 @@ public class ImportInsurancesPageEvents {
 
         // Iterate through CSV records and HTML table for comparison of row 1
         row = rows.get(1);
-        columns = row.findElements(By.tagName("th")); // Adjust the locator based on your HTML structure
+        columns = row.findElements(By.tagName("th"));
         columnData = new ArrayList<>();
         columnNumber = 0;
         for (WebElement column : columns) {
@@ -150,7 +140,7 @@ public class ImportInsurancesPageEvents {
 
         // Iterate through CSV records and HTML table for comparison of row 2
         row = rows.get(2);
-        columns = row.findElements(By.tagName("th")); // Adjust the locator based on your HTML structure
+        columns = row.findElements(By.tagName("th"));
         columnData = new ArrayList<>();
         columnNumber = 0;
         for (WebElement column : columns) {
@@ -175,7 +165,7 @@ public class ImportInsurancesPageEvents {
 
         // Iterate through CSV records and HTML table for comparison of row 3
         row = rows.get(3);
-        columns = row.findElements(By.tagName("th")); // Adjust the locator based on your HTML structure
+        columns = row.findElements(By.tagName("th"));
         columnData = new ArrayList<>();
         columnNumber = 0;
         for (WebElement column : columns) {
@@ -200,7 +190,7 @@ public class ImportInsurancesPageEvents {
 
         // Iterate through CSV records and HTML table for comparison of row 4
         row = rows.get(4);
-        columns = row.findElements(By.tagName("th")); // Adjust the locator based on your HTML structure
+        columns = row.findElements(By.tagName("th"));
         columnData = new ArrayList<>();
         columnNumber = 0;
         for (WebElement column : columns) {
