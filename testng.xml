@@ -11,6 +11,9 @@
             <class name="test.java.NewInsuranceWithDirectDebitCardTest"></class>
             <class name="test.java.ImportInsurancesSuccessfulTest"></class>
             <class name="test.java.ImportInsurancesFailureTest"></class>
+            <class name="test.java.PolicyFilterFunctionalityTest"></class>
+            <class name="test.java.EmailFilterFunctionalityTest"></class>
+            <class name="test.java.OlderThanFilterFunctionalityTest"></class>
         </classes>
     </test>
 </suite>
